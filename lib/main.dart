@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//씨발 ㅈ같은거
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
