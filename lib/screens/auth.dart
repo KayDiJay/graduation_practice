@@ -10,6 +10,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  var _isLogin = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,16 +41,27 @@ class _AuthScreenState extends State<AuthScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'email address'),
+                          decoration: const InputDecoration(labelText: '이메일'),
                           keyboardType: TextInputType.emailAddress,
                           autocorrect: false,
                           textCapitalization: TextCapitalization.none,
                         ),
                         TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'password'),
+                          decoration: const InputDecoration(labelText: '비밀번호'),
                           obscureText: true,
+                        ),
+                        const SizedBox(height: 12),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text(_isLogin ? '로그인' : 'sign up'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _isLogin = !_isLogin;
+                            });
+                          },
+                          child: Text(_isLogin ? '계정생성' : '이미존재. 로그인'),
                         ),
                       ],
                     ),
